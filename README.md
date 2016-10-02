@@ -42,11 +42,13 @@ Want to contribute? Great!
  - Toast message for 'succces/failed adding event' feedback
  - Fix pagination calendar (remove firebase-util pagination)
  - Better time support for parties longer than 2+ days
+ - fb not working, - why?
+ - clean up code
 
 License
 ----
 
-none
+MIT 
 
 
 **Demo available soon**

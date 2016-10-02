@@ -7,8 +7,8 @@ angular.module('myApp', [
   'myApp.view2',
   'myApp.version',
   'ngFacebook',
-  'firebase', 
- 
+  'firebase',
+
 ])
 
 .config(['$routeProvider', function($routeProvider) {
@@ -29,7 +29,7 @@ angular.module('myApp', [
      var firstScriptElement = document.getElementsByTagName('script')[0];
 
      // Create a new script element and set its id
-     var facebookJS = document.createElement('script'); 
+     var facebookJS = document.createElement('script');
      facebookJS.id = 'facebook-jssdk';
 
      // Set the new script's source to the source of the Facebook JS SDK
@@ -44,10 +44,10 @@ angular.module('myApp', [
 )
 
 .config(['$facebookProvider', function($facebookProvider) {
-    $facebookProvider.setAppId('974494579240404').setPermissions(['email','user_events']);
+    $facebookProvider.setAppId('<REPLACE>').setPermissions(['email','user_events']);
   }])//Facebook config
-  
-  
+
+
   .filter('cut', function () {
         return function (value, wordwise, max, tail) {
             if (!value) return '';
@@ -65,21 +65,10 @@ angular.module('myApp', [
             }
 
             return value + (tail || ' …');
-        }; 
+        };
 })// cut filter for trancuating words
 
 
 ;
 
 ;
-
-
-
-
-
-
-
-
-
-
-

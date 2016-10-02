@@ -1,0 +1,110 @@
+<div class="row" ng-init='preloader()'>
+
+
+
+    <div class=" col s12 m10 offset-m1 ">
+        <h3 class="red-text text-lighten-1">Add your bass event with Facebook!</h3>
+        <div class="card indigo lighten-1  ">
+            <div class="card-content white-text">
+                <span class="card-title">
+                {{welcomeMsg}}
+            </span>
+
+
+
+                <div class="card-action">
+                    <button type="button" ng-click="login()" ng-hide="isLoggedIn" class="waves-effect waves-light btn-large indigo fb-login-btn ">
+                        Facebook Login
+                    </button>
+
+                    <div class="fb-login-button" ng-click="login()" ng-hide="isLoggedIn" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
+
+                    <div class="row" ng-hide="isNotLoggedIn">
+
+                        <div class="col s12 m12 l6" ng-repeat="item in fbResponse " >
+                            <!--start ngRepeat-->
+                            <div class="card red lighten-1 fbPartyCard">
+                                <!--start party card-->
+                                <div class="card-image">
+                                    <img class="responsive-img event-fb-cover" no-image ng-src="{{ item.cover.source }}" alt="cover image fb event" />
+                                    <span class="card-title fb-event-name" style="text-shadow:1px 1px 4px black;">{{ item.name }}</span>
+                                </div>
+                                <div class="card-content event-card">
+                                    <div class="row">
+                                        <div class="col s12 m12">
+                                            <div class="col s6 m6">
+                                                <p class=" fb-event-date "> <i class="mdi-action-event"></i> {{ item.start_time | date:'MMM d, y' }}</p>
+
+                                                <p class="fb-event-place "> <i class=" mdi-maps-pin-drop"></i> {{ item.place.location.city }}</p>
+                                            </div>
+                                            <div class="col s6 m6">
+                                                <p class="fb-event-description "><i class="mdi-action-description "></i>{{ item.description | limitTo:80 }}...</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+                                        <form id="{{ item.id }}">
+                                            <div class="col s6 m6">
+                                                <p>
+                                                    <input name="{{ item.id }}1" ng-value="genres[0]" ng-model="item.genre" type="radio" id="{{ item.id }}1" />
+                                                    <label class="white-text" for="{{ item.id }}1">Neuro</label>
+                                                </p>
+                                                <p>
+                                                    <input name="{{ item.id }}2" value="jumpup" ng-value="genres[1]" ng-model="item.genre" type="radio" id="{{ item.id }}2" />
+                                                    <label class="white-text" for="{{ item.id }}2">Jumpup</label>
+                                                </p>
+                                                <p>
+                                                    <input name="{{ item.id }}3" value="dubstep" ng-value="genres[2] " ng-model="item.genre" type="radio" id="{{ item.id }}3" />
+                                                    <label class="white-text" for="{{ item.id }}3">Dubstep</label>
+                                                </p>
+
+
+
+                                            </div>
+                                            <div class="col s6 m6">
+
+                                                <p>
+                                                    <input name="{{ item.id }}4" value="mixed" ng-value="genres[3]" ng-model="item.genre" type="radio" id="{{ item.id }}4" />
+                                                    <label class="white-text" for="{{ item.id }}4">Mixed</label>
+                                                </p>
+                                                <p>
+                                                    <input name="{{ item.id }}5" value="liquid" ng-value="genres[4]" ng-model="item.genre" type="radio" id="{{ item.id }}5" />
+                                                    <label class="white-text" for="{{ item.id }}5">Liquid</label>
+                                                </p>
+                                                <p>
+                                                    <input name="{{ item.id }}6" value="core" ng-value="genres[5]" ng-model="item.genre" type="radio" id="{{ item.id }}6" />
+                                                    <label class="white-text" for="{{ item.id }}6">Core</label>
+                                                </p>
+                                            </div>
+
+                                        </form>
+                                    </div>
+                                </div>
+
+
+                                <!--<div class="card-action">-->
+                                <!--    <a class="waves-effect waves-light teal btn white-text" ng-click="addParty(item)" onclick="Materialize.toast('Event added to BassCalendar', 3000)">ADD EVENT</a>-->
+                                <!--</div>-->
+
+
+                                <div class="input-field col s4">
+                                    <a class="waves-effect waves-light teal btn white-text" message="{{ toastMsg }}" ng-click="addParty(item)"  duration=2000 toast='click'>Add Event</a>
+                                </div>
+
+                            </div>
+
+
+
+                        </div>
+                        <!-- end party card-->
+
+                    </div>
+                    <div id="fb-root">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

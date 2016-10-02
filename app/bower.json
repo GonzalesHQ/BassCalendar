@@ -1,0 +1,31 @@
+{
+  "name": "BassCalendar",
+  "main": "app.js",
+  "version": "0.0.1",
+  "homepage": "https://github.com/GonzalesHQ/BassCalendar",
+  "authors": [
+    "GonzalesHQ <rogermeyz@openmailbox.org>"
+  ],
+  "description": "Pland your bass addiction",
+  "moduleType": [
+    "amd"
+  ],
+  "keywords": [
+    "party",
+    "overview",
+    "bass",
+    "drum",
+    "events",
+    "easy"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "app/bower_components",
+    "test",
+    "tests"
+  ]
+}

@@ -1,0 +1,297 @@
+@charset "UTF-8";
+
+
+/*card on fbLogin/addparty page*/
+.fbPartyCard{
+    height:464px;
+}
+
+.fb-event-name {}
+
+.fb-event-date {}
+
+.fb-event-description {min-height: 110px;}
+
+.fb-event-place {}
+
+.event-fb-cover {
+    
+    opacity:0.25;
+    /*height:100px !important;*/
+    transition: all 0.35s ease-in-out;
+    
+}
+.event-fb-cover:hover {
+    
+    opacity:1;
+    /*height:100  !important;*/
+
+}
+
+
+/*Other*/
+
+.long-preload{
+    
+    opacity:0;
+    height:0rem;
+    animation:longLoad 2s 1;
+    animation-delay: 4s;
+    animation-fill-mode: forwards;
+    
+}
+
+.preload-card{
+    width: 20rem;
+    margin: auto;
+    border-radius: 5px;
+    padding: 3rem;
+}
+
+.preloader{
+     position: fixed;
+     z-index:999;
+     height:101%;
+     width:101%;
+    top:0;
+    left: 0;
+    bottom: 0;
+    right:0;
+    padding-top:4rem;
+   
+}
+
+.preloader-wrapper {
+   
+    border-radius: 100px;
+    margin: auto;
+   
+    
+}
+
+.preload-done{
+    position: fixed;
+     z-index:999;
+     height:100%;
+     width:100%;
+     padding-top:4rem;
+     transition-timing-function: ease-in;
+    animation:moveUpOnDone 1s 1;
+    animation-fill-mode: forwards;
+   
+}
+
+
+.bye-preloader{
+    
+    display:none;
+}
+
+@-webkit-keyframes longLoad {
+    from {opacity: 0; display:none;height:0;}
+    /*80%  {opacity: 0.0;height:0; }*/
+    to {opacity: 1; height:2rem;}
+}
+
+@-webkit-keyframes moveUpOnDone {
+    from {top:0;}
+    /*80%  {opacity: 0.0;height:0; }*/
+    to {top:-100%; }
+} 
+
+em {
+    color: darkgray;
+}
+
+#footer {
+    padding: 30px;
+}
+
+#footer::after {
+    content: "";
+    width: 200%;
+    height: 200%;
+    background: url(https://avatars3.githubusercontent.com/u/11740254?v=3&s=460);
+    background-size: 20%;
+    background-repeat: no-repeat;
+    background-position: right center;
+    opacity: 0.3;
+    top: -45%;
+    left: -103%;
+    bottom: 0;
+    right: 0;
+    position: absolute;
+}
+
+.card .event-card {
+    padding-top: 20px;
+}
+
+.genre-btn {
+    max-width: 100px;
+    min-width:68px;
+    width: 100%;
+    padding: 0;
+}
+
+.btn.disabled.core {
+    background-color: #F44336 !important;
+    color: white !important;
+    opacity: 0.7;
+}
+
+.btn.disabled.jumpup {
+    background-color: #4CAF50 !important;
+    color: white !important;
+    opacity: 0.7;
+}
+
+.btn.disabled.liquid {
+    background-color: #64B5F6 !important;
+    color: white !important;
+    opacity: 0.7;
+}
+
+.btn.disabled.dubstep {
+    background-color: #000000 !important;
+    color: white !important;
+    opacity: 0.7;
+}
+
+.btn.disabled.mixed, .mixed-grad {
+
+background: 
+  /* On "top" */
+  repeating-linear-gradient(
+    45deg,
+    transparent,
+    transparent 10px,
+    #26a69a 10px,
+    #26a69a 20px
+  ),
+  /* on "bottom" */
+  linear-gradient(
+    to bottom,
+    #4db6ac,
+    #009688
+  );
+    
+    
+    color: white !important;
+    opacity: 0.7;
+}
+
+.btn.disabled.neuro {
+    background-color: #9c27b0 !important;
+    color: white !important;
+    opacity: 0.7;
+}
+
+.sidebar-options {
+    padding-left: 0.375em !important;
+}
+
+.genre-card > tbody > tr > td {
+    text-align: center;
+    padding-top: 0.5rem;
+    padding-bottom: 0.5rem;
+    cursor: pointer;
+}
+
+.genre-card .btn {
+    width: 100%;
+}
+
+
+
+tbody {
+    min-height: 320px;
+}
+
+.genres-mobile .btn{
+    
+    width:100%;
+    padding:0 1em;
+}
+
+
+
+
+.event-row-link{
+    
+    display:block;
+    
+}
+
+
+
+@media only screen and (max-width: 993px) {
+    .preloader-wrapper {
+        /*position: absolute;*/
+        /*top: 35%;*/
+        /*left: 50%;*/
+    }
+        .responsive-table.bordered tbody tr {
+    width: 50%;
+    }
+    
+    .table-card-wrap{
+        margin-bottom:0;
+    }
+    
+    .genres-mobile .row{
+        margin-bottom:0.8rem;
+    }
+        .fbPartyCard{
+        height:auto;
+        }
+    .fb-event-description {height: auto;}
+}
+
+@media (max-width: 700px) {
+    h1 {
+        font-size: 3rem;
+    }
+    
+    /*login card*/
+    .fb-card {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        background-color: rgba(0, 0, 0, 0);
+        background: rgba(0, 0, 0, 0);
+    }
+    /* table.responsive-table thead {*/
+    /*display: none;*/
+    /*}*/
+    .pagination {
+        display: none;
+    }
+    .table-card-wrap {
+        margin-bottom: -0.5rem;
+    }
+    .genres-mobile {
+        display: block;
+    }
+    .genres-mobile btn {
+        height: 1.5rem;
+        width: 70%;
+    }
+    
+   
+    
+    /*partycard view 2*/
+    .fbPartyCard{
+    height:auto;
+    }
+    .fb-event-description {min-height: auto;}
+
+
+}
+
+@media only screen and (max-width: 420px) {
+
+ .responsive-table.bordered tbody tr {
+    width: 100%;
+    }
+}

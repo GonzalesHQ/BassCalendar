@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html lang="en" ng-app="myApp" class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html lang="en" ng-app="myApp" class="no-js">
+<!--<![endif]-->
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title>BassCalendar v0.1</title>
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <link rel="apple-touch-icon" sizes="57x57" href="favicons/apple-icon-57x57.png">
+<link rel="apple-touch-icon" sizes="60x60" href="favicons/apple-icon-60x60.png">
+<link rel="apple-touch-icon" sizes="72x72" href="favicons/apple-icon-72x72.png">
+<link rel="apple-touch-icon" sizes="76x76" href="favicons/apple-icon-76x76.png">
+<link rel="apple-touch-icon" sizes="114x114" href="favicons/apple-icon-114x114.png">
+<link rel="apple-touch-icon" sizes="120x120" href="favicons/apple-icon-120x120.png">
+<link rel="apple-touch-icon" sizes="144x144" href="favicons/apple-icon-144x144.png">
+<link rel="apple-touch-icon" sizes="152x152" href="favicons/apple-icon-152x152.png">
+<link rel="apple-touch-icon" sizes="180x180" href="favicons/apple-icon-180x180.png">
+<link rel="icon" type="image/png" sizes="192x192"  href="favicons/android-icon-192x192.png">
+<link rel="icon" type="image/png" sizes="32x32" href="favicons/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="96x96" href="favicons/favicon-96x96.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicons/favicon-16x16.png">
+<link rel="manifest" href="/manifest.json">
+<meta name="msapplication-TileColor" content="#ffffff">
+<meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+<meta name="theme-color" content="#ffffff">
+
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/normalize.css">
+  <link rel="stylesheet" href="bower_components/html5-boilerplate/css/main.css">
+    <!-- Dev Materialize CSS -->
+  <link rel="stylesheet" href="bower_components/materialize/dist/css/materialize.css">
+<link rel="stylesheet" href="custom-css.css" type="text/css" />
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  <script src="bower_components/html5-boilerplate/js/vendor/modernizr-2.6.2.min.js"></script>
+<!--ALWAYS USE HTTPS  -->
+
+  <script src="bower_components/angular/angular.js"></script>
+  <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="app.js"></script>
+  <script src="view1/view1.js"></script>
+  <script src="view2/view2.js"></script>
+  <script src="components/version/version.js"></script>
+  <script src="components/version/version-directive.js"></script>
+  <script src="components/version/interpolate-filter.js"></script>
+  <script src="bower_components/ng-facebook/ngFacebook.js"></script>
+  <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="bower_components/materialize/dist/js/materialize.js"></script>
+  <script src="bower_components/materialize/js/toasts.js"></script>
+  <script src="bower_components/materialize/js/forms.js"></script>
+  <!--<script src="bower_components/angular-materialize/src/angular-materialize.js"></script>-->
+  
+  <script src="https://cdn.firebase.com/js/client/2.2.4/firebase.js"></script>
+  <script src="https://cdn.firebase.com/libs/angularfire/1.1.1/angularfire.min.js"></script>
+  <script src="https://cdn.firebase.com/libs/firebase-util/0.2.4/firebase-util.min.js"></script>
+
+  <style type="text/css">
+    a:focus,
+    *:focus {
+      outline: none;
+      noFocusLine: expression(this.onFocus=this.blur());
+    }
+    
+     
+    
+  </style>
+
+
+</head>
+
+<body class='red lighten-5'>
+  
+           <!--PRELOADER-->
+        <div class="z-depth-1 preloader center-align red lighten-5">
+          <div class="white card-panel preload-card">
+          <p class="center">Loading Bass</p>
+          <p class="center long-preload">...It's taking longer than usual.</p>
+        <div class="preloader-wrapper big active z-depth-1" >
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div>
+            <div class="gap-patch">
+              <div class="circle"></div>
+            </div>
+            <div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+        </div>
+      </div>
+
+<!--Navigation mobile-->
+ <nav class="hide-on-large-only">
+   <div class="nav-wrapper">
+      <a href="#/view1" class="brand-logo left">BassCalendar</a>
+      <ul id="nav-mobile" class="right">
+        <li><a href="#/view2"><i class="mdi-content-add-circle-outline "></i></a>
+        <li><a href="#/view1"><i class="mdi-action-view-list "></i></a>
+      </ul>
+    </div>
+  </nav><!--end nav-->
+
+<!--Header/banner desktop-->
+  <div class="section red hide-on-med-and-down " id="index-banner">
+    <div class="container">
+      <div class="row">
+        <div class="col s12 m9">
+          <h1 class="header  red-text text-lighten-4 center-on-small-only"><a class="red-text text-lighten-4 "  href="#/view1">BassCalendar | v0.1</a></h1>
+          <h4 class=" white-text red-text text-darken-4 center-on-small-only">Plan your bass addiction</h4>
+        </div>
+        <div class="fb-like" data-share="true" data-width="450" data-show-faces="true"></div>
+      </div>
+    </div>
+  </div><!--end banner-->
+
+  <div class="container" >
+    <div class="row  ">
+      <div class="col s12 m12 l12">
+        
+
+        
+            <!--[if lt IE 7]>
+      <p class="browsehappy">You are using a <strong>prehistoric</strong> browser. Please <a href="http://browsehappy.com/">upgrade your fucking browser</a>, you fucking swine.</p>
+  <![endif]-->
+
+            <div ng-view >
+              <!--- HERES THE VIEW -->
+              
+            </div>
+          </div>
+
+
+        
+        
+
+    </div>
+  </div>
+
+  
+
+  <!-- In production use:
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/x.x.x/angular.min.js"></script>
+  -->
+
+
+  <script>
+    (function(d, s, id) {
+      var js, fjs = d.getElementsByTagName(s)[0];
+      if (d.getElementById(id)) {
+        return;
+      }
+      js = d.createElement(s);
+      js.id = id;
+      js.src = "//connect.facebook.net/en_US/sdk.js";
+      fjs.parentNode.insertBefore(js, fjs);
+    }(document, 'script', 'facebook-jssdk'));
+  </script>
+  
+
+
+
+
+</body>
+
+</html>

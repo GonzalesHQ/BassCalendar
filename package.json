@@ -18,10 +18,6 @@
     "type": "git",
     "url": "https://github.com/GonzalesHQ/BassCalendar"
   },
-  "scripts": {
-   "prestart": "npm install",
-   "start": "http-server -a localhost -p 8080 -c-1 ./app"
-},
   "engines": {
     "node": ">= 0.6.0",
     "npm": ">= 1.0.0"
@@ -34,5 +30,6 @@
   "devDependencies": {},
   "bundleDependencies": [],
 
-  "private": true
+  "private": true,
+  "main" : "server.js"
 }

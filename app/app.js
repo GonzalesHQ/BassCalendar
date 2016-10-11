@@ -44,7 +44,7 @@ angular.module('myApp', [
 )
 
 .config(['$facebookProvider', function($facebookProvider) {
-    $facebookProvider.setAppId('974494579240404').setPermissions(['email','user_events']);
+    $facebookProvider.setAppId('<replace>').setPermissions(['email','user_events']);
   }])//Facebook config
 
 

@@ -1,28 +1,23 @@
 'use strict';
 
-angular.module('myApp.view2', ['ngRoute'])
+angular.module('myApp.addevent', ['ngRoute'])
 
 .config(['$routeProvider', function($routeProvider) {
-    $routeProvider.when('/view2', {
-      templateUrl: 'view2/view2.html',
-      controller: 'View2Ctrl'
+    $routeProvider.when('/addevent', {
+      templateUrl: 'addevent/addevent.html',
+      controller: 'AddEventCtrl'
     });
-  }]
+  }])
 
-)
-
-.controller('View2Ctrl', ['$scope', '$facebook', '$firebaseArray', '$rootScope', function($scope, $facebook, $firebaseArray, $rootScope) {
-
+.controller('AddEventCtrl', ['$scope', '$facebook', '$firebaseArray', '$rootScope', function($scope, $facebook, $firebaseArray, $rootScope) {
 
   $scope.preloader = function() {
-
     // Animate loader off
     $(".preloader").slideUp("slow");
     $(".preload-card").fadeOut("medium");
-
   };
 
-  var ref = new Firebase("https://brilliant-torch-2628.firebaseio.com");
+  var ref = new Firebase("replace");
   var fireList = $firebaseArray(ref); //firebase connection
   $scope.partylist = fireList; //firebase into scope
 
@@ -35,7 +30,7 @@ angular.module('myApp.view2', ['ngRoute'])
   //     });
   // }; //fb login
 
-  $scope.genres = ['neuro', 'jumpup', 'dubstep', 'mixed', 'liquid', 'core'];
+  $scope.genres = ['neuro', 'jumpup', 'dubstep', 'mixed', 'liquid', 'terror', 'acidcore', 'crossbreed', 'frenchcore', 'hardcore'];
 
   var today = new Date();
   $scope.dateToday = today;
@@ -64,9 +59,7 @@ angular.module('myApp.view2', ['ngRoute'])
         });
     }
 
-
     refresh();
-
 
 
 

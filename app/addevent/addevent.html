@@ -1,7 +1,5 @@
 <div class="row" ng-init='preloader()'>
 
-
-
     <div class=" col s12 m10 offset-m1 ">
         <h3 class="red-text text-lighten-1">Add your bass event with Facebook!</h3>
         <div class="card indigo lighten-1  ">
@@ -9,14 +7,10 @@
                 <span class="card-title">
                 {{welcomeMsg}}
             </span>
-
-
-
                 <div class="card-action">
                     <button type="button" ng-click="login()" ng-hide="isLoggedIn" class="waves-effect waves-light btn-large indigo fb-login-btn ">
                         Facebook Login
                     </button>
-
                     <div class="fb-login-button" ng-click="login()" ng-hide="isLoggedIn" data-max-rows="1" data-size="large" data-show-faces="false" data-auto-logout-link="false"></div>
 
                     <div class="row" ng-hide="isNotLoggedIn">
@@ -59,12 +53,8 @@
                                                     <input name="{{ item.id }}3" value="dubstep" ng-value="genres[2] " ng-model="item.genre" type="radio" id="{{ item.id }}3" />
                                                     <label class="white-text" for="{{ item.id }}3">Dubstep</label>
                                                 </p>
-
-
-
                                             </div>
                                             <div class="col s6 m6">
-
                                                 <p>
                                                     <input name="{{ item.id }}4" value="mixed" ng-value="genres[3]" ng-model="item.genre" type="radio" id="{{ item.id }}4" />
                                                     <label class="white-text" for="{{ item.id }}4">Mixed</label>
@@ -78,24 +68,19 @@
                                                     <label class="white-text" for="{{ item.id }}6">Core</label>
                                                 </p>
                                             </div>
-
                                         </form>
                                     </div>
                                 </div>
 
-
                                 <!--<div class="card-action">-->
                                 <!--    <a class="waves-effect waves-light teal btn white-text" ng-click="addParty(item)" onclick="Materialize.toast('Event added to BassCalendar', 3000)">ADD EVENT</a>-->
                                 <!--</div>-->
-
 
                                 <div class="input-field col s4">
                                     <a class="waves-effect waves-light teal btn white-text" message="{{ toastMsg }}" ng-click="addParty(item)"  duration=2000 toast='click'>Add Event</a>
                                 </div>
 
                             </div>
-
-
 
                         </div>
                         <!-- end party card-->

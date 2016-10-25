@@ -3,21 +3,25 @@
 // Declare app level module which depends on views, and components
 angular.module('myApp', [
   'ngRoute',
-  'myApp.view1',
-  'myApp.view2',
+  'myApp.calendar',
+  'myApp.addevent',
   'myApp.version',
   'ngFacebook',
   'firebase',
 
 ])
 
-.config(['$routeProvider', function($routeProvider) {
-  $routeProvider.otherwise({redirectTo: '/view1'});
+
+// config
+
+.config(['$routeProvider','$facebookProvider',  function($routeProvider, $facebookProvider) {
+
+  $facebookProvider.setAppId('replace').setPermissions(['email','user_events']);
+  $routeProvider.otherwise({redirectTo: '/calendar'});
+
 }])
 
-//
-
-
+// run
 
 .run( function( $rootScope ) {
   // Load the facebook SDK asynchronously
@@ -38,15 +42,13 @@ angular.module('myApp', [
      // Insert the Facebook JS SDK into the DOM
      firstScriptElement.parentNode.insertBefore(facebookJS, firstScriptElement);
    }());
-}
+})
 
 
-)
-
-.config(['$facebookProvider', function($facebookProvider) {
-    $facebookProvider.setAppId('<replace>').setPermissions(['email','user_events']);
-  }])//Facebook config
-
+// .config(['$facebookProvider', function($facebookProvider) {
+//     $facebookProvider.setAppId('974494579240404').setPermissions(['email','user_events']);
+//   }])//Facebook config
+//
 
   .filter('cut', function () {
         return function (value, wordwise, max, tail) {
@@ -66,9 +68,4 @@ angular.module('myApp', [
 
             return value + (tail || ' …');
         };
-})// cut filter for trancuating words
-
-
-;
-
-;
+});// cut filter for trancuating words

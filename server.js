@@ -3,7 +3,6 @@
 var express = require('express');
 var fs      = require('fs');
 
-
 /**
  *  Define the sample application.
  */
@@ -11,30 +10,6 @@ var SampleApp = function() {
 
     //  Scope.
     var self = this;
-
-// // -------------------------------------test
-// //Lets require/import the HTTP module
-// var http = require('http');
-//
-// //Lets define a port we want to listen to
-// const PORT=8080;
-//
-// //We need a function which handles requests and send response
-// function handleRequest(request, response){
-//     response.end('It Works!! Path Hit: ' + request.url);
-// }
-//
-// //Create a server
-// var server = http.createServer(handleRequest);
-//
-// //Lets start our server
-// server.listen(PORT, function(){
-//     //Callback triggered when server is successfully listening. Hurray!
-//     console.log("Server listening on: http://localhost:%s", PORT);
-// });
-// //-------------------------------------end test
-
-
 
     /*  ================================================================  */
     /*  Helper functions.                                                 */
@@ -53,7 +28,7 @@ var SampleApp = function() {
             //  allows us to run/test the app locally.
             console.warn('No OPENSHIFT_NODEJS_IP var, using 127.0.0.1');
             self.ipaddress = "127.0.0.1";
-        };
+        }
     };
 
 
@@ -128,13 +103,6 @@ var SampleApp = function() {
             res.send( self.zcache['index.html'] );
         };
     };
-//
-// app.set('views', __dirname + '/views')
-// app.use(express.static __dirname + '/public')
-//
-// app.get('/partials/:filename', routes.partials)
-// app.use(routes.index) # everything else
-
 
     /**
      *  Initialize the server (express) and create the routes and register
@@ -146,6 +114,16 @@ var SampleApp = function() {
         self.app = express();
 
          self.app.use(express.static('app'));
+
+        self.app.use(function(req, res, next) {
+            res.status(404).send('Sorry cant find that!');
+          });
+
+          self.app.use(function(err, req, res, next) {
+              console.error(err.stack);
+              res.status(500).send('Something broke!');
+            });
+
 
         //  Add handlers for the app (from the routes).
         for (var r in self.routes) {
@@ -166,7 +144,6 @@ var SampleApp = function() {
         self.initializeServer();
     };
 
-
     /**
      *  Start the server (starts up the sample application).
      */
@@ -177,9 +154,7 @@ var SampleApp = function() {
                         Date(Date.now() ), self.ipaddress, self.port);
         });
     };
-
 };   /*  Sample Application.  */
-
 
 
 /**

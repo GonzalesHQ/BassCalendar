@@ -1,4 +1,4 @@
-<div class="row" ng-controller="View1Ctrl"  >
+<div class="row" ng-controller="CalendarCtrl">
   <div class="col l8 m12 s12 ">
     <!--start table COL & ROW-->
     <div class="row table-card-wrap">
@@ -6,7 +6,6 @@
         <!--start table -->
         <div class="card red lighten-5   ">
           <table class="z-depth-1 bordered hoverable responsive-table centered" style="text-transform:uppercase;">
-
             <thead class="red white-text hide-on-med-and-down" style="border-radius:2px;">
               <tr>
                 <th data-field="date" style="border-bottom-left-radius:2px;">Date</th>
@@ -16,20 +15,14 @@
                 <th data-field="fb-link" style="border-radius:0px; border-top-right-radius:2px; border-bottom-right-radius:2px;">fb page</th>
               </tr>
             </thead>
-
-
             <tbody>
-
-
-
               <!--ng-if="item.start_time > today" FILTER -->
-              <tr  ng-repeat="item in list  | orderBy:'+start_time' " ng-if=" item.start_time >= dateToday"  ng-href="http://www.facebook.com/events/{{ item.id }}" ng-init='preloader()'  >
+              <tr ng-repeat="item in list  | orderBy:'+start_time' " ng-if=" item.start_time >= dateToday" ng-href="http://www.facebook.com/events/{{ item.id }}" ng-init='preloader()'>
                 <td>
-                  <a class=" btn z-depth-0"  ng-class="{ 'red lighten-3': eventIsToday(item.start_time), 'disabled' :!eventIsToday(item.start_time)}" ng-cloak>
+                  <a class=" btn z-depth-0" ng-class="{ 'red lighten-3': eventIsToday(item.start_time), 'disabled' :!eventIsToday(item.start_time)}" ng-cloak>
                     <time datetime="{{ item.start_time }}">
-                        <i class="material-icons left hide-on-small-only" ng-if=" item.start_time == dateToday " >event_available</i> 
-                       {{ item.start_time == dateToday ? "today" : item.start_time | date:'d MMM' }} 
-                    </time> 
+                      <i class="material-icons left hide-on-small-only" ng-if=" item.start_time == dateToday ">event_available</i> {{ item.start_time == dateToday ? "today" : item.start_time | date:'d MMM' }}
+                    </time>
                   </a>
                 </td>
                 <!--- DATE PARTY --->
@@ -43,121 +36,102 @@
                 <td> <a target="new" ng-href="http://www.facebook.com/events/{{ item.id }}" class="waves-effect red lighten-3 waves-red white-text disabled btn" style="cursor:pointer;"><i style="font-size:1.8rem;" class=" mdi-image-navigate-next flow-text "></i></a></td>
                 <!--- LINK PARTY --->
               </tr>
-              
-
-
             </tbody>
           </table>
         </div>
         <div class="genres-mobile hide-on-large-only">
           <div class="row">
-            <div class="col m4 s4  white-text center-align " >
+            <div class="col m4 s4  white-text center-align ">
               <a ng-model="genreSelect" ng-click="genreChange( 'neuro' )" class="waves-effect waves-light btn purple white-text center-align">neuro</a>
             </div>
-            <div class="col m4 s4  white-text center-align " >
+            <div class="col m4 s4  white-text center-align ">
               <a ng-model="genreSelect" ng-click="genreChange( 'jumpup' )" class="waves-effect waves-light btn green white-text center-align">jumpup</a>
             </div>
-            <div class="col m4 s4  white-text center-align " >
+            <div class="col m4 s4  white-text center-align ">
               <a ng-model="genreSelect" ng-click="genreChange( 'liquid' )" class="waves-effect waves-light btn blue lighten-2 white-text center-align">liquid</a>
             </div>
           </div>
-          
           <div class="row">
-            <div class="col m4 s4  white-text center-align " >
-              <a ng-model="genreSelect" ng-click="genreChange( 'core' )" class="waves-effect waves-light btn red white-text center-align">core</a>
-            </div>
-            <div class="col m4 s4  white-text center-align " >
+            <div class="col m4 s4  white-text center-align ">
               <a ng-model="genreSelect" ng-click="genreChange( 'mixed' )" class="waves-effect waves-light btn mixed-grad white-text center-align">mixed</a>
             </div>
-            <div class="col m4 s4  white-text center-align " >
+            <div class="col m4 s4  white-text center-align ">
               <a ng-model="genreSelect" ng-click="genreChange( 'dubstep' )" class="waves-effect waves-light btn black white-text center-align">dubstep</a>
             </div>
+            <div class="col m4 s4  white-text center-align ">
+              <a ng-model="genreSelect" ng-click="genreChange( 'frenchcore' )" class="waves-effect waves-light btn red white-text center-align">core</a>
+            </div>
           </div>
-            
           <div class="row">
-            <div class="col m12 s12  white-text center-align " >
+            <div class="col m4 s4  white-text center-align ">
+              <a ng-model="genreSelect" ng-click="genreChange( 'terror' )" class="waves-effect waves-light btn red white-text center-align">core</a>
+            </div>
+            <div class="col m4 s4  white-text center-align ">
+              <a ng-model="genreSelect" ng-click="genreChange( 'Acidcore' )" class="waves-effect waves-light btn mixed-grad white-text center-align">mixed</a>
+            </div>
+            <div class="col m4 s4  white-text center-align ">
+              <a ng-model="genreSelect" ng-click="genreChange( 'crossbreed' )" class="waves-effect waves-light btn black white-text center-align">dubstep</a>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col m12 s12  white-text center-align ">
               <a ng-model="genreSelect" ng-click="genreChange(  )" class="waves-effect waves-light btn disabled white-text center-align">RESET</a>
+            </div>
           </div>
-            
-           
-          </div>
-          
-          <!--<a ng-model="genreSelect" ng-click="genreChange( 'neuro' )" class="waves-effect waves-light btn purple white-text center-align">neuro</a>-->
-          <!--<a ng-model="genreSelect" ng-click="genreChange( 'jumpup' )" class="waves-effect waves-light btn red white-text center-align">jumpup</a>-->
-          <!--<a ng-model="genreSelect" ng-click="genreChange( 'mixed' )" class="waves-effect waves-light btn yellow white-text center-align">mixed</a>-->
-          
-          <!--<a ng-model="genreSelect" ng-click="genreChange( 'dubstep' )" class="waves-effect waves-light btn black white-text center-align">dubstep</a>-->
-          <!--<a ng-model="genreSelect" ng-click="genreChange( 'core' )" class="waves-effect waves-light btn green white-text center-align">core</a>-->
-          <!--<a ng-model="genreSelect" ng-click="genreChange( 'liquid' )" class="waves-effect waves-light btn blue white-text center-align">liquid</a>-->
-          
-          <!--<a ng-model="genreSelect" ng-click="genreChange( null )" class="btn disabled small white-text center-align">reset</a>-->
         </div>
-
-       
-
-
         <ul class="pagination hide-on-med-and-down" ng-if="showPagin">
           <li class="prev waves-effect "><a ng-click="pagePrevious()"><i class="material-icons">chevron_left</i></a></li>
           <li class="next waves-effect "><a ng-click="pageNext()"><i class="material-icons">chevron_right</i></a></li>
         </ul>
-
       </div>
-
-      
-
-
     </div>
   </div>
-  <!--END PART 1 aka TABLE DATA  -->
-
-
+  <!--END PART 1  TABLE DATA  -->
   <aside class="sidebar-options col l4 m12 s12 ">
     <!--start table COL & ROW-->
-
     <!--start cards -->
-
-
     <div class="card red lighten-5">
       <div class="card-content red white-text">
         <h3 class="card-title ">Add your event</h3>
-
       </div>
       <div class="card-action center-align">
-        <a href="#/view2" type="button" class="waves-effect waves-light truncate  white-text btn indigo ">
-          <!--<i class="mdi-content-link left"></i>--> Add Your Party
+        <a href="#/addevent" type="button" class="waves-effect waves-light truncate  white-text btn indigo ">
+          <i class="mdi-content-link left"></i>
+          Add Your Party
         </a>
       </div>
     </div>
-
-
     <!--start card 2 -->
-
-
     <div class="card red lighten-5 hide-on-med-and-down">
       <div class="card-content red white-text">
         <h3 class="card-title">Filter by Genre</h3>
-
       </div>
       <div class="card-action">
-
         <table class="genre-card  ">
           <tr>
-            <td><a  ng-click="genreChange( 'neuro' )" class="waves-effect waves-light btn purple white-text center-align">neuro</a></td>
-            <td><a  ng-click="genreChange( 'mixed' )" class="waves-effect waves-light btn mixed-grad  white-text">mixed</a></td>
+            <td><a ng-click="genreChange( 'neuro' )" class="waves-effect waves-light btn purple white-text center-align">neuro</a></td>
+            <td><a ng-click="genreChange( 'mixed' )" class="waves-effect waves-light btn mixed-grad  white-text">mixed</a></td>
           </tr>
           <tr>
-            <td><a  ng-click="genreChange( 'jumpup' )" class="waves-effect waves-light btn green white-text">jumpup</a></td>
-            <td><a  ng-click="genreChange('liquid' )" class="waves-effect waves-light btn blue lighten-2 white-text">liquid</a></td>
+            <td><a ng-click="genreChange( 'jumpup' )" class="waves-effect waves-light btn green white-text">jumpup</a></td>
+            <td><a ng-click="genreChange('liquid' )" class="waves-effect waves-light btn blue lighten-2 white-text">liquid</a></td>
           </tr>
           <tr>
-            <td><a  ng-click="genreChange( 'dubstep' )" class="waves-effect waves-light btn  black white-text">dubstep</a></td>
-            <td><a  ng-click="genreChange( 'core' )" class="waves-effect waves-light btn red  white-text">core</a></td>
+            <td><a ng-click="genreChange( 'dubstep' )" class="waves-effect waves-light btn  black white-text">dubstep</a></td>
+            <td><a ng-click="genreChange( 'core' )" class="waves-effect waves-light btn red  white-text">hardcore</a></td>
           </tr>
           <tr>
-            <td colspan="2"> <a ng-click="genreChange( null )" class="black-text btn red lighten-5 disabled center-align">RESET FILTER </a></td>
+            <td><a ng-click="genreChange( 'terror' )" class="waves-effect waves-light btn green white-text">terror</a></td>
+            <td><a ng-click="genreChange('crossbreed' )" class="waves-effect waves-light btn blue lighten-2 white-text">crossbreed</a></td>
           </tr>
+          <td><a ng-click="genreChange( 'frenchcore' )" class="waves-effect waves-light btn green white-text">frenchcore</a></td>
+          <td><a ng-click="genreChange('Acidcore' )" class="waves-effect waves-light btn blue lighten-2 white-text">Acidcore</a></td>
+          </tr>
+          <tr>
+            <tr>
+              <td colspan="2"> <a ng-click="genreChange( null )" class="black-text btn red lighten-5 disabled center-align">RESET FILTER </a></td>
+            </tr>
         </table>
-
       </div>
     </div>
     <!--end card2 -->
@@ -167,14 +141,8 @@
         <br>
         <em>All Drinks Reserved.</em>
       </div>
-      
-      
-      
-
     </div>
-
   </aside>
   <!--end container COL -->
-
 </div>
 <!--end container ROW -->
